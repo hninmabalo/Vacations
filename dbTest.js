@@ -7,7 +7,8 @@ async function createUser() {
     try {
         const newUser = await db.user.create({
             name: "My Name",
-            email: "myemail@gmail.com"
+            email: "myemail@gmail.com",
+            password: "thispass"
         });
         console.log('my new user >>>', newUser);
     } catch (error) {
@@ -16,7 +17,7 @@ async function createUser() {
     
 }
 // @todo run createUser function below
-
+// createUser();
 // READ
 // find one user
 async function findOneUser() {
@@ -30,7 +31,7 @@ async function findOneUser() {
     }
 }
 // @todo run findOneUser function below
-
+// findOneUser();
 // find all users
 async function findAllUsers() {
     try {
@@ -41,7 +42,7 @@ async function findAllUsers() {
     }
 }
 // @todo run findAllUsers function below
-
+// findAllUsers();
 // find one user
 async function findOrCreate() {
     try {
@@ -57,7 +58,7 @@ async function findOrCreate() {
     }
 }
 // @todo run findOrCreate function below
-
+// findOrCreate();
 // UPDATE
 async function updateUser() {
     try {
@@ -74,7 +75,7 @@ async function updateUser() {
     }
 }
 // @todo run updateUser function below
-
+// updateUser();
 // DELETE
 async function deleteUser() {
     try {
@@ -87,3 +88,4 @@ async function deleteUser() {
     }
 }
 // @todo run deleteUser function below
+deleteUser();
