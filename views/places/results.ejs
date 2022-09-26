@@ -1,0 +1,24 @@
+<h1>Results</h1>
+<form action="/places/search" method="GET">
+    <button type="submit">Back to Search</button>
+</form> 
+<% data.forEach((place) => { %> 
+    <h2>Country: <%= place.country %> </h2>
+    <h2>State/Region: <%= place.region %> </h2>
+    <h3>Name: <%= place.name %> </h3>
+    <p>City: <%= place.city_name %> </p>
+    <p>Timezone: <%= place.timezone %> </p>
+    <p>Description: <%= place.dest_type %> </p>
+    <p>Available Hotels: <%= place.hotels %> </p>
+    <img src=<%= place.image_url %> alt="location pic" height='300' width='300'>
+    <form action="/places/new" method="POST">
+        <input type="text" value="<%= place.country %>" name="location" hidden>
+        <input type="text" value="<%= place.name %>" name="title" hidden>
+        <input type="text" value="<%= place.image_url %>" name="image" hidden>
+        <input type="text" value="<%= place.dest_type %>" name="description" hidden>
+        <input type="text" value="<%= currentUser.id %>" name="userId" hidden>
+        <button type="submit">Add Location</button>
+    </form> 
+    <br>
+    <br>
+<% }) %> 

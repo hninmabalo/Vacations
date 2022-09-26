@@ -1,0 +1,10 @@
+<h1>Lists of Favorite places</h1>
+
+<% places.forEach(p => { %>
+    <h2>Country: <%= p.location %> </h2>
+    <h3>Name: <%= p.title %> </h3>
+    <img src=<%= p.image %> alt="location pic" height='300' width='300'>\
+    <p>Description: <%= p.description %> </p>
+    <a href="/places/<%= p.id %>">More Info...</a>
+    <br>
+<% }) %> 

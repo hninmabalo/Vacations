@@ -88,4 +88,4 @@ async function deleteUser() {
     }
 }
 // @todo run deleteUser function below
-deleteUser();
+// deleteUser();

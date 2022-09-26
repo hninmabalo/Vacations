@@ -41,6 +41,7 @@ app.get('/', (req, res) => {
 
 //access to all of our routes GET /auth/login, GET /auth/signup POST routes
 app.use('/auth', require('./controllers/auth'));
+app.use('/places', isLoggedIn, require('./controllers/places'));
 
 // Add this above /auth controllers
 app.get('/profile', isLoggedIn, (req, res) => {
