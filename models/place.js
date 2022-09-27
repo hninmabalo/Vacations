@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       models.place.belongsTo(models.user);
+      models.place.hasMany(models.review);
     }
   }
   place.init({

@@ -1,9 +1,31 @@
-<h1>SEARCH PAGE</h1>
-<form action="/places/results" method="GET">
-<input type="text" id="search" name="search" value=" ">
-<button type="submit">Search</button>
-</form>
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+    <style>
+        body {
+            background-image: url("https://imgur.com/Oajb16b.jpg");
+        }
+    </style>
+  </head>
+  <body>
+  
+  <div class="jumbotron text-center">
+    <p>Search locations for your next vacation</p>
 
-<form action="/" method="GET">
-    <button  type="submit">Homepage</button>
-</form>
+    <form action="/places/results" method="GET">
+        <input type="text" id="search" name="search" value=" ">
+        <button type="submit" class="btn btn-info">Search</button>
+        </form>
+        
+  </div>
+
+  
+  </body>
+  </html>    

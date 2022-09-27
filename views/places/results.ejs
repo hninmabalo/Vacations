@@ -1,8 +1,65 @@
-<h1>Results</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<hr>
 <form action="/places/search" method="GET">
-    <button type="submit">Back to Search</button>
+    <button type="submit" class="btn btn-info">Back to Search</button>
 </form> 
-<% data.forEach((place) => { %> 
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Country</th>
+            <th scope="col">State/Region</th>
+            <th scope="col">Name</th>
+            <th scope="col">City</th>
+            <th scope="col">Timezone</th>
+            <th scope="col">Description</th>
+            <th scope="col">Available Hotels</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+                <% data.forEach((place) => { %> 
+                <td><img src=<%= place.image_url %> alt="location pic" height='300' width='300'></td>
+                <td style="background-color:rgb(220, 245, 247); text-align: center;" ><%= place.country %></td>
+                <td style="background-color:rgb(194, 245, 248); text-align: center;"><%= place.region %></td>
+                <td style="background-color:rgb(166, 242, 246); text-align: center;"><%= place.name %> </td>
+                <td style="background-color:rgb(139, 244, 249); text-align: center;"><%= place.city_name %></td>
+                <td style="background-color:rgb(110, 240, 247); text-align: center;"><%= place.timezone %> </td>
+                <td style="background-color:rgb(80, 238, 246); text-align: center;"><%= place.dest_type %></td>
+                <td style="background-color:rgb(36, 232, 243); text-align: center;"><%= place.hotels %> </td>
+                <td>
+                <form action="/places/new" method="POST">
+                <input type="text" value="<%= place.country %>" name="location" hidden>
+                <input type="text" value="<%= place.name %>" name="title" hidden>
+                <input type="text" value="<%= place.image_url %>" name="image" hidden>
+                <input type="text" value="<%= place.dest_type %>" name="description" hidden>
+                <input type="text" value="<%= currentUser.id %>" name="userId" hidden>
+                <br>
+                <button type="submit" class="btn btn-success">Add to Favorite</button>
+            </form> 
+        </td>
+            </tr>
+            
+            
+        <% }) %> 
+    </tbody>
+</table>
+
+<!-- <% data.forEach((place) => { %> 
     <h2>Country: <%= place.country %> </h2>
     <h2>State/Region: <%= place.region %> </h2>
     <h3>Name: <%= place.name %> </h3>
@@ -11,14 +68,16 @@
     <p>Description: <%= place.dest_type %> </p>
     <p>Available Hotels: <%= place.hotels %> </p>
     <img src=<%= place.image_url %> alt="location pic" height='300' width='300'>
+        
     <form action="/places/new" method="POST">
         <input type="text" value="<%= place.country %>" name="location" hidden>
         <input type="text" value="<%= place.name %>" name="title" hidden>
         <input type="text" value="<%= place.image_url %>" name="image" hidden>
         <input type="text" value="<%= place.dest_type %>" name="description" hidden>
         <input type="text" value="<%= currentUser.id %>" name="userId" hidden>
-        <button type="submit">Add Location</button>
+        <br>
+        <button type="submit">Add This Location to your Favorite Places</button>
     </form> 
     <br>
-    <br>
-<% }) %> 
+    <hr>
+<% }) %>  -->

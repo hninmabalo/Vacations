@@ -3,48 +3,8 @@ const db = require('../models');
 const router = express.Router();
 const passport = require('../config/ppConfig');
 const axios = require('axios');
+const isLoggedIn = require('../middleware/isLoggedIn');
 require('dotenv').config();
-// place - create a new post
-// router.post('/', (req, res) => {
-//     db.place.create({
-//         location: req.body.location,
-//         title: req.body.title,
-//         image: req.body.image,
-//         description: req.body.description,
-//         userId: req.body.userId
-//     })
-//     .then((post) => {
-//         res.redirect('/')
-//     })
-//     .catch((error) => {
-//         res.status(400).render('main/404')
-//     })
-// });
-
-// create a new review
-// router.post('/:id/reviews', (req, res) => {
-//     const createdDate = new Date().toISOString();
-//     db.place.findOne({
-//       where: { id: req.params.id },
-//       include: [db.review]
-//     })
-//     .then((place) => {
-//       if (!place) throw Error()
-//       db.comment.create({
-//         placeId: parseInt(req.params.id),
-//         content: req.body.content,
-//         createdAt: createdDate,
-//         updatedAt: createdDate
-//       }).then(review => {
-//         res.redirect(`/places/${req.params.id}`);
-//       })
-//     })
-//     .catch((error) => {
-//       console.log(error)
-//       res.status(400).render('main/404')
-//     })
-//   })
-
 
   //routes
 router.get('/', async (req, res) => {
@@ -52,7 +12,7 @@ router.get('/', async (req, res) => {
   let places = await db.place.findAll();
   places = places.map( p => p.toJSON());
   console.log(places);
-  //render the (songs/index) page
+  //render the (places/index) page
   res.render('places/index', { places : places })
 });
 
@@ -78,14 +38,15 @@ router.get('/results', async (req, res) => {
 
   const response = await axios.request(options);
   console.log('response >>>', response.data);
-  //render the songs/results page
+  //render the places/results page
   res.render('places/results', { data: response.data });
 });
 
 router.get('/:id', async (req, res) => {
   //print place to verify
   let place = await db.place.findOne({
-    where: { id: req.params.id }
+    where: { id: req.params.id },
+    include: [ db.review ]
   });
   place = place.toJSON();
   console.log('==this is show route==')
@@ -95,6 +56,7 @@ router.get('/:id', async (req, res) => {
   //render the places/show page with the place
   res.render('places/show', { place: place })
 });
+
 
 router.post('/new', async (req, res) => {
   // print req.body to view form inputs
@@ -107,9 +69,34 @@ router.post('/new', async (req, res) => {
     userId: parseInt(req.body.userId)
   });
   console.log(newPlace.toJSON());
-  // res.redirect to all favorite songs
+  // res.redirect to all favorite places
   res.redirect('/places')
 });
+
+// create a new review
+router.post('/:id/reviews', (req, res) => {
+  const createdDate = new Date().toISOString();
+  db.place.findOne({
+    where: { id: req.params.id },
+    include: [db.user, db.review]
+  })
+  .then((place) => {
+    if (!place) throw Error()
+    db.review.create({
+      placeId: parseInt(req.params.id),
+      userId: req.body.userId,
+      content: req.body.review,
+      createdAt: createdDate,
+      updatedAt: createdDate
+    }).then(review => {
+      res.redirect(`/places/${req.params.id}`);
+    })
+  })
+  .catch((error) => {
+    console.log(error)
+    res.status(400).render('main/404')
+  })
+})
 
 //first you will need to find the place
 // db.place.findOne({
@@ -125,5 +112,16 @@ router.post('/new', async (req, res) => {
 //     }
 //   })
 // })
+
+router.delete('/:id', async (req, res) => {
+  //get place and remove
+  let placesDeleted = await db.place.destroy({
+    where: { id: req.params.id }
+  });
+  console.log('== this is the delete route ==');
+  console.log('amount of place deleted', placesDeleted);
+  // redirect back to all places
+  res.redirect('/places');
+});
 
 module.exports = router;

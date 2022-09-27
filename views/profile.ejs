@@ -1,7 +1,45 @@
-<h2>Profile Page</h2>
+<!-- <h2>Profile Page</h2>
 
-<h3>Welcome to your PROFILE</h3>
+<div class="container-fluid bg-1 text-center">
+    <h3>Welcome <%= name %> </h3>
+  </div>
 
-<p>Id: <%= id %></p>
-<p>Name: <%= name %></p>
-<p>Email: <%= email %></p>
+
+<form method="get" action="/profile/edit">
+    <button tpye="submit">Edit name here</button>
+</form> -->
+
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  
+    <style>
+        body {
+           background-image: url("https://imgur.com/5afroff.jpg");
+        }
+    </style>
+  </head>
+  <body>
+  
+  <div class="jumbotron text-center">
+    <div class="container-fluid bg-1 text-center">
+        <h3>Welcome <%= name %> </h3>
+        <p>Start exploring your next getaway place</p>
+      </div>
+    
+
+    <form method="get" action="/profile/edit">
+        <button tpye="submit">Edit name here</button>
+    </form>
+
+  </div>
+
+  
+  </body>
+  </html>    
