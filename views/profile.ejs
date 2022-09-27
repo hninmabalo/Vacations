@@ -1,14 +1,3 @@
-<!-- <h2>Profile Page</h2>
-
-<div class="container-fluid bg-1 text-center">
-    <h3>Welcome <%= name %> </h3>
-  </div>
-
-
-<form method="get" action="/profile/edit">
-    <button tpye="submit">Edit name here</button>
-</form> -->
-
 <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -29,10 +18,16 @@
   
   <div class="jumbotron text-center">
     <div class="container-fluid bg-1 text-center">
-        <h3>Welcome <%= name %> </h3>
+        <h3>Welcome!</h3>
+        <h2><%= name %></h2>
         <p>Start exploring your next getaway place</p>
       </div>
     
+<div>
+      <form method="get" action="/places/search">
+        <button type="submit" class="btn btn-primary">Search For Vacation Idea</button>
+      </form>
+</div>
 
     <form method="get" action="/profile/edit">
         <button tpye="submit">Edit name here</button>
