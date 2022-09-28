@@ -34,13 +34,13 @@
         <tr>
                 <% data.forEach((place) => { %> 
                 <td><img src=<%= place.image_url %> alt="location pic" height='300' width='300'></td>
-                <td style="background-color:rgb(220, 245, 247); text-align: center;" ><%= place.country %></td>
-                <td style="background-color:rgb(194, 245, 248); text-align: center;"><%= place.region %></td>
-                <td style="background-color:rgb(166, 242, 246); text-align: center;"><%= place.name %> </td>
-                <td style="background-color:rgb(139, 244, 249); text-align: center;"><%= place.city_name %></td>
-                <td style="background-color:rgb(110, 240, 247); text-align: center;"><%= place.timezone %> </td>
-                <td style="background-color:rgb(80, 238, 246); text-align: center;"><%= place.dest_type %></td>
-                <td style="background-color:rgb(36, 232, 243); text-align: center;"><%= place.hotels %> </td>
+                <td style="background-color: rgb(211, 234, 245); text-align: center;" ><%= place.country %></td>
+                <td style="background-color: rgb(189, 226, 243); text-align: center;"><%= place.region %></td>
+                <td style="background-color: rgb(166, 218, 242); text-align: center;"><%= place.name %> </td>
+                <td style="background-color: rgb(145, 211, 242); text-align: center;"><%= place.city_name %></td>
+                <td style="background-color: rgb(124, 205, 243); text-align: center;"><%= place.timezone %> </td>
+                <td style="background-color: rgb(103, 198, 242); text-align: center;"><%= place.dest_type %></td>
+                <td style="background-color: rgb(84, 192, 243); text-align: center;"><%= place.hotels %> </td>
                 <td>
                 <form action="/places/new" method="POST">
                 <input type="text" value="<%= place.country %>" name="location" hidden>

@@ -74,9 +74,9 @@ router.post('/new', async (req, res) => {
 });
 
 // create a new review
-router.post('/:id/reviews', (req, res) => {
+router.post('/:id/reviews', async (req, res) => {
   const createdDate = new Date().toISOString();
-  db.place.findOne({
+  await db.place.findOne({
     where: { id: req.params.id },
     include: [db.user, db.review]
   })
@@ -84,8 +84,8 @@ router.post('/:id/reviews', (req, res) => {
     if (!place) throw Error()
     db.review.create({
       placeId: parseInt(req.params.id),
-      userId: req.body.userId,
-      content: req.body.review,
+      userId: parseInt(req.params.id),
+      content: req.body.content,
       createdAt: createdDate,
       updatedAt: createdDate
     }).then(review => {

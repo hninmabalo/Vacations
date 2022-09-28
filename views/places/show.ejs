@@ -42,17 +42,17 @@
           
         </p>
 
-        <form action="./<%= place.id %>/review" method="POST" class="mb-3">
+        <form action="./<%= place.id %>/reviews" method="POST" class="mb-3">
         
-          <label for="review" class="form-label">Review</label>
-          <input type="text" id="review" name="review" placeholder="leave review here" class="form-control">
+          <label for="review" class="form-label">Reviews</label>
+          <input type="text" id="review" name="content" placeholder="leave review here" class="form-control">
             
           <button type="submit">Leave a review</button>
         </form>
         
         <% place.reviews.forEach(review => { %> 
             <div id="reviewdiv">
-              <p>Recent review: <%= review.content %></p>
+              <p>Recent review: <%= review.content %> <small> by <%= review.userId %> </small></p>
               
              </div>
             
