@@ -23,8 +23,6 @@ router.get('/search', (req, res) => {
 router.get('/results', async (req, res) => {
   //get back the search item
   console.log('>>>> SEARCH DATA', req.query);
-  //use axios to find the results
-  const axios = require("axios");
 
   const options = {
     method: 'GET',
@@ -39,7 +37,7 @@ router.get('/results', async (req, res) => {
   const response = await axios.request(options);
   console.log('response >>>', response.data);
   //render the places/results page
-  res.render('places/results', { data: response.data });
+  res.render('places/results', { data: response.data })
 });
 
 router.get('/:id', async (req, res) => {
@@ -96,32 +94,24 @@ router.post('/:id/reviews', async (req, res) => {
     console.log(error)
     res.status(400).render('main/404')
   })
-})
-
-//first you will need to find the place
-// db.place.findOne({
-//   where: { id: 'anything'}
-// })
-// .then(song => {
-//   let count = place.count;
-//   db.place.update({
-//     count: count + 1
-//   }, {
-//     where: {
-//       title: "Pier 39"
-//     }
-//   })
-// })
+});
 
 router.delete('/:id', async (req, res) => {
   //get place and remove
+  try {
   let placesDeleted = await db.place.destroy({
     where: { id: req.params.id }
-  });
+  })
   console.log('== this is the delete route ==');
-  console.log('amount of place deleted', placesDeleted);
+  console.log('amount of place deleted', placesDeleted)
+  res.redirect('/places')
+} catch (error) {
+  console.log(error)
+  console.log('**** error ****')
   // redirect back to all places
-  res.redirect('/places');
+  res.redirect('/places')
+}
 });
+
 
 module.exports = router;

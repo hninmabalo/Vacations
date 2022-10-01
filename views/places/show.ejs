@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
         <meta name="generator" content="Hugo 0.101.0">
-        <title>Cover Template · Bootstrap v5.2</title>
+        <title>Vacations-idea</title>
     
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
     
@@ -18,7 +18,7 @@
         <!-- Custom styles for this template -->
         <link href="/public/css/cover.css" rel="stylesheet">
       </head>
-      <body class="d-flex h-100 text-center text-bg-dark">
+      <div class="d-flex h-100 text-center text-bg-dark">
         
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <header class="mb-auto">
@@ -46,13 +46,13 @@
         
           <label for="review" class="form-label">Reviews</label>
           <input type="text" id="review" name="content" placeholder="leave review here" class="form-control">
-            
+          
           <button type="submit">Leave a review</button>
         </form>
         
         <% place.reviews.forEach(review => { %> 
             <div id="reviewdiv">
-              <p>Recent review: <%= review.content %> <small> by <%= review.userId %> </small></p>
+              <p>Recent review: <%= review.content %> <small> - by user id #: <%= review.userId %> </small></p>
               
              </div>
             
@@ -62,5 +62,5 @@
     
      
     </div>
-      </body>
+  </div>
     </html>

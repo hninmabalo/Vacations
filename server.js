@@ -45,44 +45,12 @@ app.get('/', (req, res) => {
 //access to all of our routes GET /auth/login, GET /auth/signup POST routes
 app.use('/auth', require('./controllers/auth'));
 app.use('/places', isLoggedIn, require('./controllers/places'));
+app.use('/profile', isLoggedIn, require('./controllers/profile'));
 
-// Add this above /auth controllers
-app.get('/profile', isLoggedIn, (req, res) => {
-  const { id, name, email } = req.user.get(); 
-  res.render('profile', { id, name, email });
-});
+app.get('*', (req, res) => {
+  res.status(404).render('main/404');
+})
 
-app.get('/profile/edit', isLoggedIn, (req, res) => {
-  res.render('edit');
-});
-
-
-app.put('/profile/:id', isLoggedIn, async (req, res) => {
-  try {
-    
-
-  const usersUpdated = await db.user.update({
-    email: req.body.email,
-    name: req.body.name
-  }, {
-    where: {
-        id: req.params.id
-    }
-  });
-
-  console.log('***** PUT ROUTE *****');
-  console.log('Users updated', usersUpdated);
-  console.log('******');
-
-  res.redirect('/profile');
-  } catch (error) {
-    console.log('***** ERROR ******');
-    console.log(error);
-    console.log('*********');
-    res.render('edit');
-  }
-  
-});
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT, () => {

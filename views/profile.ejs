@@ -1,7 +1,7 @@
 <!DOCTYPE html>
   <html lang="en">
   <head>
-    <title>Bootstrap Example</title>
+    <title>Vacations-idea</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -20,17 +20,25 @@
     <div class="container-fluid bg-1 text-center">
         <h3>Welcome!</h3>
         <h2><%= name %></h2>
-        <p>Start exploring your next getaway place</p>
+       
       </div>
     
-<div>
+<div> 
+  <p>Start exploring your next getaway place</p>
       <form method="get" action="/places/search">
         <button type="submit" class="btn btn-primary">Search For Vacation Idea</button>
       </form>
 </div>
 
+<div>
+  <p>Visit to your dream locations</p>
+      <form method="get" action="/places">
+        <button type="submit" class="btn btn-primary">My Favorite Places</button>
+      </form>
+</div>
+
     <form method="get" action="/profile/edit">
-        <button tpye="submit">Edit name here</button>
+        <button tpye="submit">Edit Profile</button>
     </form>
 
   </div>
