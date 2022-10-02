@@ -1,6 +1,6 @@
 # Vacation idea App
 
-Visit vacation idea app website at:[Vacation idea App](https://vacations-idea-app.herokuapp.com/)
+Visit vacation idea app website at: [Vacation idea App](https://vacations-idea-app.herokuapp.com/)
 
 ## Getting Started
 
@@ -18,9 +18,11 @@ Fork & Clone this repo to your local computer.
 ## Wireframes
 
 Starter page of the app
+
 ![wireframes](img/vacation%20app%20stater%20page.png)
 
 Home page of the app
+
 ![wireframes](img/vacations%20search%20page.png)
 ----------------------------------------------------------
 ## Credit
