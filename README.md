@@ -1,6 +1,6 @@
 # Vacation idea App
 
-Visit vacation idea app website at: 
+Visit vacation idea app website at:[Vacation idea App](https://vacations-idea-app.herokuapp.com/)
 
 ## Getting Started
 
