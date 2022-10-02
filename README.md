@@ -1,25 +1,31 @@
 # Vacation idea App
 
-Fork & Clone this repo.
+Visit vacation idea app website at: 
+
+## Getting Started
+
+Fork & Clone this repo to your local computer.
 
 ----------------------------------------------------------
-### ERD
+## ERD
 
 ![ERD](img/project2%20ERD.png)
 ----------------------------------------------------------
-### User Stories
+## User Stories
 
 * As a user, I want to be able to search an idea for my next vacation place so that I will know where I should make plan for my next vacation.
 ----------------------------------------------------------
-### Wireframes
+## Wireframes
 
+Starter page of the app
 ![wireframes](img/vacation%20app%20stater%20page.png)
 
+Home page of the app
 ![wireframes](img/vacations%20search%20page.png)
 ----------------------------------------------------------
-### Credit
+## Credit
 
-* Third party API [RapidAPI](https://rapidapi.com)
+* Third party API: [RapidAPI](https://rapidapi.com)
 
 * Background images are downloaded from [Imgur: The magic of the internet](https://imgur.com/YWuotPe.jpg)
 

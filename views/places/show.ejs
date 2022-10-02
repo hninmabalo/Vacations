@@ -10,11 +10,8 @@
     
         <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
     
-    
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
     
-    
-        
         <!-- Custom styles for this template -->
         <link href="/public/css/cover.css" rel="stylesheet">
       </head>
@@ -33,7 +30,7 @@
       <main class="px-3">
         <h1><%= place.title %> </h1>
         <p class="lead">Country: <%= place.location %> </p>
-        <img src="<%= place.image %> " class="img-fluid" alt="...">
+        <img src="<%= place.image %> " class="img-fluid" alt="location pic">
         <p class="lead">Type: <%= place.description %> </p>
         <br>
         <br>
@@ -52,7 +49,7 @@
         
         <% place.reviews.forEach(review => { %> 
             <div id="reviewdiv">
-              <p>Recent review: <%= review.content %> <small> - by user id #: <%= review.userId %> </small></p>
+              <p>Recent review: <%= review.content %><small>- by user id: #<%= review.userId %></small></p>
               
              </div>
             
